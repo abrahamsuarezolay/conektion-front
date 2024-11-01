@@ -1,0 +1,21 @@
+$bg-color: #9DDE8B;
+$text-color: #000000;
+$green1: #40A578;
+$green2: #006769;
+$cream: #E6FF94;
+
+.app-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $bg-color;
+}
+
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

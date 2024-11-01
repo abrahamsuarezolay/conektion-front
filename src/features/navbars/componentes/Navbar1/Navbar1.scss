@@ -1,0 +1,146 @@
+@use "./../../../../App.scss" as *;
+
+
+.navbar1-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    justify-content: end;
+    align-items: end;
+}
+
+.burguer-button-container{
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+.burguer-button{
+    background-color: transparent;
+    border: none;
+    margin-top: 0.5%;
+}
+
+.burguer-button:hover{
+    cursor: pointer;
+}
+
+.nav-container-show{
+    display: flex;
+    width: 100%;
+    height: 12vh;
+    opacity: 1;
+    animation: navContainerShow 0.5s;
+}
+
+@keyframes navContainerShow {
+    0%{
+        height: 0;
+        opacity: 0;
+    }
+
+    100%{
+        height: 12vh;
+        opacity: 1;
+    }
+}
+
+.nav-container-hide{
+    display: flex;
+    width: 100%;
+    height: 0vh;
+    opacity: 0;
+    animation: navContainerHide 0.5s;
+}
+
+@keyframes navContainerHide {
+    0%{
+        height: 12vh;
+        opacity: 1;
+    }
+
+    100%{
+        height: 0;
+        opacity: 0;
+    }
+}
+
+.list-container {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    background-color: $green2;
+}
+
+.list-container li{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease-out
+}
+
+.list-container li:hover{
+    cursor: pointer;
+    background-color: $green1;
+    color: white;
+}
+
+.navlink{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+}
+
+
+#dashboard-nav:hover{
+    border-bottom: solid 2px $cream;
+}
+
+.dashboard-icon{
+    margin-bottom: 5%;
+}
+
+#projects-nav:hover{
+    border-bottom: solid 2px $cream;
+}
+
+.project-icon{
+    margin-bottom: 5%;
+}
+
+#images-nav:hover{
+    border-bottom: solid 2px $cream;
+}
+
+.image-icon{
+    margin-bottom: 5%;
+}
+
+#settings-nav:hover{
+    border-bottom: solid 2px $cream;
+}
+
+.settings-icon{
+    margin-bottom: 5%;
+}
+
+#new-nav:hover{
+    border-bottom: solid 2px $cream;
+}
+
+.new-icon{
+    margin-bottom: 5%;
+}
