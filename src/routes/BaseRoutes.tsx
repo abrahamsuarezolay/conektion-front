@@ -2,12 +2,13 @@ import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "../layout/home/Home";
 import Navbar1 from "../features/navbars/componentes/Navbar1/Navbar1";
-import DashboardLayout from "../features/dashboard/layout/DashboardLayout";
-import ProjectsLayout from "../features/projects/layout/ProjectsLayout";
-import ImagesLayout from "../features/images/layout/ImagesLayout";
-import SettingsLayout from "../features/settings/layout/SettingsLayout";
-import NewLayout from "../features/new/layout/NewLayout";
-
+import InstalacionLayout from "../features/instalacion/layout/InstalacionLayout";
+import AboutUsLayout from "../features/aboutUs/layout/AboutUsLayout";
+import CaseStudiesLayout from "../features/caseStudies/layout/CaseStudiesLayout";
+import ComingEventsLayout from "../features/comingEvents/layout/ComingEventsLayout";
+import ContactLayout from "../features/contact/layout/ContactLayout";
+import OtherSolutionsLayout from "../features/otherSolutions/layout/OtherSolutionsLayout";
+import RentalLayout from "../features/rental/layout/RentalLayout";
 
 export const BaseRoutes = () => {
 
@@ -19,11 +20,13 @@ export const BaseRoutes = () => {
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<DashboardLayout />} />
-        <Route path="/projects" element={<ProjectsLayout />} />
-        <Route path="/images" element={<ImagesLayout />} />
-        <Route path="/settings" element={<SettingsLayout />} />
-        <Route path="/new" element={<NewLayout />} />
+        <Route path="/installation" element={<InstalacionLayout />} />
+        <Route path="/about" element={<AboutUsLayout />} />
+        <Route path="/casestudies" element={<CaseStudiesLayout />} />
+        <Route path="/comingevents" element={<ComingEventsLayout />} />
+        <Route path="/contact" element={<ContactLayout />} />
+        <Route path="/othersolutions" element={<OtherSolutionsLayout />} />
+        <Route path="/rental" element={<RentalLayout />} />
 
 
         {/* Rutas privadas */}

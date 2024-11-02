@@ -7,8 +7,24 @@
     width: 100%;
     padding: 0;
     margin: 0;
-    justify-content: end;
-    align-items: end;
+    justify-content: start;
+    align-items: start;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    width: 10%;
+
+    img{
+        width: 100%;
+    }
+}
+
+.logo-container:hover{
+    cursor: pointer;
 }
 
 .burguer-button-container{
@@ -28,8 +44,9 @@
 
 .nav-container-show{
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    height: 12vh;
+    height: 8vh;
     opacity: 1;
     animation: navContainerShow 0.5s;
 }
@@ -72,10 +89,10 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
     justify-content: space-around;
-    background-color: $green2;
+    background-color: $black;
 }
 
 .list-container li{
@@ -85,62 +102,22 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    color: rgba(255, 255, 255, 0.6);
+    color: $light-gray;
     transition: all 0.2s ease-out
 }
 
 .list-container li:hover{
     cursor: pointer;
-    background-color: $green1;
-    color: white;
+    background-color: $red;
+    color: $light-gray;
 }
 
 .navlink{
     width: 100%;
     display: flex;
+    text-decoration: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: inherit;
-}
-
-
-#dashboard-nav:hover{
-    border-bottom: solid 2px $cream;
-}
-
-.dashboard-icon{
-    margin-bottom: 5%;
-}
-
-#projects-nav:hover{
-    border-bottom: solid 2px $cream;
-}
-
-.project-icon{
-    margin-bottom: 5%;
-}
-
-#images-nav:hover{
-    border-bottom: solid 2px $cream;
-}
-
-.image-icon{
-    margin-bottom: 5%;
-}
-
-#settings-nav:hover{
-    border-bottom: solid 2px $cream;
-}
-
-.settings-icon{
-    margin-bottom: 5%;
-}
-
-#new-nav:hover{
-    border-bottom: solid 2px $cream;
-}
-
-.new-icon{
-    margin-bottom: 5%;
 }

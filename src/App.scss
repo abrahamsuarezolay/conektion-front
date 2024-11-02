@@ -1,10 +1,25 @@
+// Variables de colores
 $bg-color: #9DDE8B;
 $text-color: #000000;
 $green1: #40A578;
 $green2: #006769;
 $cream: #E6FF94;
 
-.app-container{
+$red:  #c5143d;
+$gray: #4B4F54;
+$black:  #25282A;
+$light-gray:  #EDF0ED;
+
+// Declaración de la fuente
+@font-face {
+    font-family: 'Garet';
+    src: url('./assets/fonts/Garet-Book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+// Estilos
+.app-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -12,10 +27,10 @@ $cream: #E6FF94;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-color: $bg-color;
+    background-color: $black;
 }
 
-
-*{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+* {
+    font-family: 'Garet', sans-serif;
+    color: $text-color;
 }
