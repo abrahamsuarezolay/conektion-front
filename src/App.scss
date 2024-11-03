@@ -1,3 +1,5 @@
+@import "../node_modules/swiper/swiper-bundle.min.css";
+
 // Variables de colores
 $bg-color: #9DDE8B;
 $text-color: #000000;
@@ -25,8 +27,7 @@ $light-gray:  #EDF0ED;
     left: 0;
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
     background-color: $black;
 }
 
