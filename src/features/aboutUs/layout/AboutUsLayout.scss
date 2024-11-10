@@ -1,0 +1,10 @@
+@use "./../../../App.scss" as *;
+
+
+.about-us-container{
+    display: flex;
+    background-color: $black;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+}

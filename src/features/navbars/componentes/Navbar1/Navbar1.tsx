@@ -8,7 +8,8 @@ function Navbar1() {
 
   const [showNavbar, setShowNavbar] = useState(true);
 
-  const { language } = useContext(LanguageContext)
+  const { language, setLangCode } = useContext(LanguageContext)
+  if(!language || !setLangCode) return
 
   const navigate = useNavigate()
 
@@ -35,6 +36,11 @@ function Navbar1() {
           <li id="dashboard-nav"><NavLink to="/comingevents" className="navlink">{language?.navbar?.comingEvents}</NavLink></li>
           <li id="dashboard-nav"><NavLink to="/contact" className="navlink">{language?.navbar?.contact}</NavLink></li>
         </ul>
+        <div className="navbar-lang-selector">
+          <span onClick={() => setLangCode('EN')}>EN</span>
+          <div style={{width: '0px', height: '20px', borderRight: '1px solid #EDF0ED'}}></div>
+          <span onClick={() => setLangCode('ES')}>ES</span>
+        </div>
       </div>
     </div >
   )
