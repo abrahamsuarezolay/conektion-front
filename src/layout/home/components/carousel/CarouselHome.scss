@@ -7,6 +7,19 @@
     align-items: center;
     width: 100%;
     height: 100vh;
+    animation-name: loading;
+    animation-duration: 1.5s;
+}
+
+@keyframes loading {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+    
 }
 
 .carousel-slide {
@@ -30,13 +43,13 @@
 }
 
 .carousel-content h2 {
-    font-size: 70px;
+    font-size: $font-size-titles;
     margin-bottom: 5%;
     color: $light-gray;
 }
 
 .carousel-content p {
-    font-size: 20px;
+    font-size: $font-size-subtitle;
     margin-bottom: 5%;
     color: $light-gray;
 }
@@ -48,7 +61,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: $font-size-subtitle;
 }
 
 .carousel-button:hover {

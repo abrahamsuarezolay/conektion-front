@@ -10,6 +10,7 @@ import { CarouselDataType } from '../../../../types/api.types';
 import { ScaleLoader } from 'react-spinners';
 import LanguageContext from '../../../../context/LangContext';
 import { getCarouselHome } from '../../../../services/api.service';
+import Loader from '../loader/Loader';
 
 function CarouselHome() {
 
@@ -23,7 +24,7 @@ function CarouselHome() {
     setLoading(true)
 
     getCarouselHome(langCode).then((response) => {
-      if(response){
+      if (response) {
         setCarData(response)
         setLoading(false)
       }
@@ -32,35 +33,37 @@ function CarouselHome() {
 
 
   return (
-    <div className='carousel-container'>
+    <>
       {!loading ? (
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 2000 }}
-          speed={2000}
-          loop={true}
-          className="mySwiper"
-        >
-          {carData.map((data, key) => {
-            return (
-              <SwiperSlide key={key}>
-                <div className="carousel-slide">
-                  <img src={data.imgUrl} alt="Slide 1" />
-                  <div className="carousel-content">
-                    <h2>{data.title}</h2>
-                    <p>{data.subtitle}</p>
-                    <button className="carousel-button">{data.buttonText}</button>
+        <div className='carousel-container'>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 2000 }}
+            speed={2000}
+            loop={true}
+            className="mySwiper"
+          >
+            {carData.map((data, key) => {
+              return (
+                <SwiperSlide key={key}>
+                  <div className="carousel-slide">
+                    <img src={data.imgUrl} alt="Slide 1" />
+                    <div className="carousel-content">
+                      <h2>{data.title}</h2>
+                      <p>{data.subtitle}</p>
+                      <button className="carousel-button">{data.buttonText}</button>
+                    </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            )
-          })}
-        </Swiper>
+                </SwiperSlide>
+              )
+            })}
+          </Swiper>
+        </div>
       ) : (
-        <ScaleLoader color='#c5143d' height={50} width={10}/>
+        <Loader />
       )}
-    </div>
+    </>
   )
 }
 

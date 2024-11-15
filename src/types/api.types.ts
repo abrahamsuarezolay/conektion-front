@@ -14,3 +14,11 @@ export interface AboutUsHeaderType {
     subtitle?: string,
     targetLanguage?: string
 }
+
+export interface AboutUsTeamMembersType {
+    imgUrl?: string,
+    name?: string,
+    position?: string,
+    bio?: string,
+    targetLanguage?: string
+}

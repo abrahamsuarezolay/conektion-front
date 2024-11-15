@@ -1,4 +1,53 @@
+@use './../../../../App.scss' as *;
+
 .about-us-header-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+
+
+    animation: loading;
+    animation-duration: 1.5s;
+
+    img{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes loading {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}
+
+.about-us-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 40%;
+    line-height: 30px;
+}
+
+.about-us-content h2 {
+    font-size: $font-size-titles;
+    margin-bottom: 5%;
+    color: $light-gray;
+}
+
+.about-us-content p {
+    font-size: $font-size-subtitle;
+    margin-bottom: 5%;
+    color: $light-gray;
 }
