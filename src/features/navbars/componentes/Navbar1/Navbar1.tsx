@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./Navbar1.scss"
 import logo from '../../../../assets/mainlogoblackcrop.png'
 import { NavLink, useNavigate } from "react-router-dom";
@@ -6,12 +6,36 @@ import LanguageContext from "../../../../context/LangContext";
 
 function Navbar1() {
 
-  const [showNavbar, setShowNavbar] = useState(true);
-
   const { language, setLangCode } = useContext(LanguageContext)
   if(!language || !setLangCode) return
 
   const navigate = useNavigate()
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [navBarResponsive, setNavBarResponsive] = useState(false)
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if(windowDimensions.width < 928){
+      setNavBarResponsive(true)
+    }else{
+      setNavBarResponsive(false)
+    }
+  }, [windowDimensions])
+
 
   const handleShowNavBar = () => {
     setShowNavbar(prevShowNavBar => !prevShowNavBar)
@@ -22,7 +46,14 @@ function Navbar1() {
   }
 
   return (
-    <div className="navbar1-container">
+    <>
+    {navBarResponsive ? (
+          <div className="navbar1-responsive">
+            <span>Nav bar responsive</span>
+
+        </div>
+    ) : (
+      <div className="navbar1-container">
       <div className={showNavbar ? "nav-container-show" : "nav-container-hide"}>
         <div className="logo-container" onClick={handleNavigateHome}>
           <img src={logo} alt='conektion-logo' />
@@ -42,7 +73,9 @@ function Navbar1() {
           <span onClick={() => setLangCode('ES')}>ES</span>
         </div>
       </div>
-    </div >
+    </div>
+    )}
+    </>
   )
 }
 

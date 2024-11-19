@@ -1,5 +1,5 @@
 import { api } from "../config/enviroment"
-import { AboutUsHeaderType, AboutUsTeamMembersType, CarouselDataType } from "../types/api.types"
+import { AboutUsHeaderType, AboutUsTeamMembersType, CarouselDataType, SectionSimpleHeader } from "../types/api.types"
 
 
 export const getCarouselHome = async (langCode?: string): Promise<CarouselDataType[]> => {
@@ -43,5 +43,19 @@ export const getAboutUsTeamMembers = async (langCode?: string): Promise<AboutUsT
     } catch (error) {
         console.error("Error fetching carousel data:", error);
         return [];
+    }
+};
+
+export const getAboutUsTeamHeader = async (langCode?: string): Promise<SectionSimpleHeader> => {
+    if (!langCode) return {};
+
+    try {
+        const response = await fetch(api.apiAboutUsTeamHeader);
+        const data = await response.json();
+        const jsonFiltered = data.filter((content:SectionSimpleHeader) => content.targetLanguage === langCode);
+        return jsonFiltered[0];
+    } catch (error) {
+        console.error("Error fetching carousel data:", error);
+        return {};
     }
 };

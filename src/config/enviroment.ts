@@ -11,5 +11,6 @@ export const api = {
 
     //About Us
     apiAboutUsHeader: `${urlBase}conektion/wp-json/about-us/v1/header`,
-    apiAboutUsTeamMembers: `${urlBase}conektion/wp-json/about-us/v1/team`
+    apiAboutUsTeamMembers: `${urlBase}conektion/wp-json/about-us/v1/team`,
+    apiAboutUsTeamHeader: `${urlBase}conektion/wp-json/about-us/v1/team-header`
 }

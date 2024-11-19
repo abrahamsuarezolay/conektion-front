@@ -2,28 +2,47 @@
 
 import React, { useContext, useEffect, useState } from 'react'
 import "./AboutUsBody.scss"
+import { AboutUsTeamComponent } from '../../../../types/component.types'
 import { AboutUsTeamMembersType } from '../../../../types/api.types'
-import LanguageContext from '../../../../context/LangContext'
-import { getAboutUsTeamMembers } from '../../../../services/api.service'
+import AboutUsModal from '../AboutUsModal/AboutUsModal'
 
-const AboutUsBody = () => {
+const AboutUsBody:React.FC<AboutUsTeamComponent> = ({sectionHeader, teamMembersData}) => {
 
-    const { langCode } = useContext(LanguageContext)
+    const [selectedMember, setSelectedMember] = useState<AboutUsTeamMembersType | undefined>()
 
-    const [teamMembersData, setTeamMembersData] = useState<AboutUsTeamMembersType[]>([])
-    const [loading, setLoading] = useState<boolean>(true)
+    const handleModal = (teamMember:AboutUsTeamMembersType) => {
+        setSelectedMember(teamMember)
+    }
 
-    useEffect(() => {
-        getAboutUsTeamMembers(langCode).then((response) => {
-            console.log(response)
-        })
-    }, [])
-
+    const closeModal = () => {
+        setSelectedMember(undefined)
+    }   
 
     return (
+        <>
         <div className='about-us-body-container'>
-            <h2>Hola</h2>
+            <div className='team-members-header'>
+            <h1>{sectionHeader?.title}</h1>
+            <p>{sectionHeader?.subtitle}</p>
+            </div>
+            {teamMembersData ? (
+                <div className='team-members-container'>
+                    {teamMembersData.map((teamMember, index) => (
+                        <div className='team-member-container' key={teamMember.position}>
+                            <img src={teamMember.imgUrl} alt={teamMember.name} onClick={() => handleModal(teamMember)}/>
+                            <h3>{teamMember.name}</h3>
+                            <h4>{teamMember.position}</h4>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
+        <>
+            { selectedMember && <AboutUsModal teamMember={selectedMember} handleClose={closeModal}/>}
+        </>
+        </>
     )
 }
 

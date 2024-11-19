@@ -1,0 +1,98 @@
+@use "./../../../../App.scss" as *;
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+
+}
+
+.about-us-modal-container{
+    position: relative;
+    display: flex;
+    width: 70%;
+    max-width: 900px;
+    min-height: 30%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 30px;
+}
+
+.modal-left-column {
+    width: 35%;
+    background-color: $black;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+}
+
+.modal-right-column {
+    background-color: $black;
+    width: 65%;
+    padding: 3%;
+    color: $light-gray;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        color: $light-gray;
+        margin: 0;
+        padding: 0;
+        font-size: $font-size-team-member-name;
+    }
+
+    h3 {
+        color: $light-gray;
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
+    }
+}
+
+.bio-container {
+    margin-top: 15%; /* Ajusta si es necesario */
+    max-height: 600px; /* Limita la altura al 60% de su contenedor padre */
+    overflow-y: auto; /* Activa el scroll solo cuando sea necesario */
+    overflow-x: hidden; /* Evita scroll horizontal no deseado */
+    p {
+        color: $light-gray;
+        word-break: break-word; /* Evita desbordamiento horizontal de texto largo */
+    }
+}
+
+.close-button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -5%;
+    right: -1%;
+    background-color: $black;
+    border: solid $light-gray 1px;
+    color: $light-gray;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+}

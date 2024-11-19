@@ -15,6 +15,11 @@ export interface dataLang {
         comingEvents?: string,
         aboutUs?: string
     }
+
+    aboutUs?: {
+        meetTheTeam?: string,
+        meetTheTeamDescription?: string
+    }
 }
 
 export interface languageContextType {

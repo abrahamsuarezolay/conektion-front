@@ -22,3 +22,9 @@ export interface AboutUsTeamMembersType {
     bio?: string,
     targetLanguage?: string
 }
+
+export interface SectionSimpleHeader {
+    title?: string,
+    subtitle?: string,
+    targetLanguage?: string
+}

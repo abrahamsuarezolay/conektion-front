@@ -1,32 +1,11 @@
 
 import React, { useContext, useEffect, useState } from 'react'
 import "./AboutUsHeader.scss"
-import LanguageContext from '../../../../context/LangContext'
-import { getAboutUsHeader } from '../../../../services/api.service'
-import { AboutUsHeaderType } from '../../../../types/api.types'
-import Loader from '../../../../layout/home/components/loader/Loader'
+import { AboutUsHeaderComponent } from '../../../../types/component.types'
 
-export const AboutUsHeader = () => {
-
-  const { langCode } = useContext(LanguageContext)
-
-  const [loading, setLoading] = useState<boolean>(true)
-  const [headerData, setHeaderData] = useState<AboutUsHeaderType>()
-
-
-  useEffect(() => {
-    getAboutUsHeader(langCode).then((response) => {
-      if (response) {
-        setHeaderData(response)
-        setLoading(false)
-      }
-    })
-  }, [langCode])
-
+export const AboutUsHeader:React.FC<AboutUsHeaderComponent> = ({ headerData }) => {
 
   return (
-    <>
-      {!loading ? (
         <div className='about-us-header-container'>
           <img src={headerData?.imgUrl} alt='about-us-header' />
           <div className='about-us-content'>
@@ -34,9 +13,5 @@ export const AboutUsHeader = () => {
             <p>{headerData?.subtitle}</p>
           </div>
         </div>
-      ) : (
-        <Loader />
-      )}
-    </>
   )
 }

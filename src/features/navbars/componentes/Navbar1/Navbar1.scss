@@ -148,3 +148,20 @@
         color: $red;
     }
 }
+
+.navbar1-responsive{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: $black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    justify-content: start;
+    align-items: start;
+    z-index: 4;
+    font-weight: 600;
+}
