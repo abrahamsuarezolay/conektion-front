@@ -1,14 +1,41 @@
-// Variables de colores
-$bg-color: #9DDE8B;
-$text-color: #000000;
-$green1: #40A578;
-$green2: #006769;
-$cream: #E6FF94;
-
+@import "../node_modules/swiper/swiper-bundle.min.css";
+//Main colors
 $red:  #c5143d;
 $gray: #4B4F54;
 $black:  #25282A;
+$shadow-gray:  #a5a5a5;
 $light-gray:  #EDF0ED;
+
+//Fontsizes
+//Big screen
+$font-size-titles: 70px;
+$font-size-subtitle: 20px;
+$font-size-team-member-name: 45px;
+
+//Mid-screen
+$font-size-m-titles: 60px;
+$font-size-m-subtitle: 17px;
+$font-size-m-team-member-name: 39px;
+
+//Small-screen
+$font-size-sm-titles: 46px;
+$font-size-sm-subtitle: 14px;
+$font-size-sm-team-member-name: 30px;
+
+//Mobile-screen
+$font-size-xs-titles: 30px;
+$font-size-xs-subtitle: 10px;
+$font-size-xs-team-member-name: 22px;
+
+
+//Responsive measures
+$big-screen: 1500px;
+$mid-big-screen: 1198px;
+$mid-screen: 898px;
+$mid-small-screen: 768px;
+$small-screen: 520px;
+$small-small-screen: 400px;
+$mobile-screen: 340px;
 
 // Declaración de la fuente
 @font-face {
@@ -26,11 +53,11 @@ $light-gray:  #EDF0ED;
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
     background-color: $black;
 }
 
 * {
     font-family: 'Garet', sans-serif;
-    color: $text-color;
+    color: $light-gray;
 }

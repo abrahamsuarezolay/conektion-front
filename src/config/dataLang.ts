@@ -3,7 +3,7 @@ import { dataLang } from "../types/dataLang.types";
 
 
 export const langES:dataLang = {
-    hola: "",
+    code: "ES",
 
     navbar: {
         aboutUs: 'Nosotros',
@@ -18,5 +18,21 @@ export const langES:dataLang = {
 }
 
 export const langEN:dataLang = {
-    hola: ""
+    code: "EN",
+
+    navbar: {
+        aboutUs: 'About us',
+        caseStudies: 'Case studies',
+        comingEvents: 'Coming soon',
+        contact: 'Contact',
+        home: 'Home',
+        instalation: 'Installation',
+        rental: 'Rental',
+        otherSolutions: 'Other solutions'
+    },
+
+    aboutUs:{
+        meetTheTeam: 'Meet the team',
+        meetTheTeamDescription: 'Our core values are people and team work. We are a company made by individuals of a wide variety of talents and skills'
+    }
 }

@@ -1,0 +1,84 @@
+@use "./../../../../App.scss" as *;
+
+.carousel-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    animation-name: loading;
+    animation-duration: 1.5s;
+}
+
+@keyframes loading {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+    
+}
+
+.carousel-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.carousel-content h2 {
+    font-size: $font-size-titles;
+    margin-bottom: 5%;
+    color: $light-gray;
+}
+
+.carousel-content p {
+    font-size: $font-size-subtitle;
+    margin-bottom: 5%;
+    color: $light-gray;
+}
+
+.carousel-button {
+    background-color: #d92f5e;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: $font-size-subtitle;
+}
+
+.carousel-button:hover {
+    background-color: #c02855;
+}
+
+.mySwiper {
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos adicionales para Swiper */
+.mySwiper .swiper-pagination-bullet {
+    background: #ffffff;
+    opacity: 0.8;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+    background: #d92f5e;
+}
