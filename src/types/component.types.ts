@@ -14,3 +14,7 @@ export interface AboutUsModalComponent {
     teamMember: AboutUsTeamMembersType,
     handleClose: () => void
 }
+
+export interface SectionHeaderComponent {
+    headerData: AboutUsHeaderType
+}

@@ -1,5 +1,5 @@
 import { api } from "../config/enviroment"
-import { AboutUsHeaderType, AboutUsTeamMembersType, CarouselDataType, SectionSimpleHeader } from "../types/api.types"
+import { AboutUsHeaderType, AboutUsTeamMembersType, CarouselDataType, CaseStudiesHeaderType, SectionSimpleHeader } from "../types/api.types"
 
 
 export const getCarouselHome = async (langCode?: string): Promise<CarouselDataType[]> => {
@@ -59,3 +59,20 @@ export const getAboutUsTeamHeader = async (langCode?: string): Promise<SectionSi
         return {};
     }
 };
+
+
+export const getCaseStudiesHeader = async (langCode?: string): Promise<CaseStudiesHeaderType> => {
+    if (!langCode) return {};
+
+    try {
+        const response = await fetch(api.apiCaseStudiesHeader);
+        const data = await response.json();
+        const jsonFiltered = data.filter((content:CaseStudiesHeaderType) => content.targetLanguage === langCode);
+        return jsonFiltered[0];
+    } catch (error) {
+        console.error("Error fetching case studies data:", error);
+        return {};
+    }
+};
+
+

@@ -1,6 +1,6 @@
 @use './../../../../App.scss' as *;
 
-.about-us-header-container {
+.section-header-container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,6 +14,11 @@
 
     animation: loading;
     animation-duration: 1.5s;
+
+    img{
+        width: 100%;
+        min-height: 100vh;
+    }
 }
 
 @keyframes loading {
@@ -26,7 +31,7 @@
     
 }
 
-.about-us-content {
+.section-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -37,31 +42,52 @@
     line-height: 30px;
 }
 
-.about-us-content h2 {
+.section-content h2 {
     width: 100%;
     font-size: $font-size-titles;
     margin-bottom: 5%;
     color: $light-gray;
+    line-height: 100%;
 }
 
-.about-us-content p {
+.section-content p {
     font-size: $font-size-subtitle;
     margin-bottom: 5%;
     color: $light-gray;
 }
 
+@media (max-width: $mid-screen){
+    .section-header-container {    
+        img{
+            width: 120vw;
+            min-height: 100vh;
+        }
+    }
+
+}
+
+
+
 
 //MID-BIG SCREEN
 @media (max-width: $mid-small-screen){
-    .about-us-content{
+
+    .section-header-container {    
+        img{
+            width: 140vw;
+            min-height: 100vh;
+        }
+    }
+
+    .section-content{
         width: 70%;
     }
     
-    .about-us-content h2 {
+    .section-content h2 {
         font-size: $font-size-m-titles;
     }
 
-    .about-us-content p {
+    .section-content p {
         font-size: $font-size-m-subtitle;
     }
 
@@ -69,22 +95,22 @@
 
 @media (max-width: $small-screen){
 
-    .about-us-header-container{
+    .section-header-container{
         img{
-            width: 400vw;
+            width: 200vw;
             height: 100vh;
         }
     }
 
-    .about-us-content{
+    .section-content{
         width: 70%;
     }
     
-    .about-us-content h2 {
+    .section-content h2 {
         font-size: $font-size-sm-titles;
     }
 
-    .about-us-content p {
+    .section-content p {
         font-size: $font-size-sm-subtitle;
     }
 

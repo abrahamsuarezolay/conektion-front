@@ -1,0 +1,15 @@
+@use "./../../../App.scss" as *;
+
+
+.case-studies-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    background-color: $black;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    overflow-y: scroll;
+    z-index: 50;
+}

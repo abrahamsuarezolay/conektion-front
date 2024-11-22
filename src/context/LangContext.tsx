@@ -9,23 +9,18 @@ const LanguageContext = createContext<languageContextType>({})
 
 const LanguageProvider = ({ children }:Props) => {
 
-    const [langCode, setLangCode] = useState("ES")
-    const [language, setLanguage] = useState<dataLang>(langES)
+    const [langCode, setLangCode] = useState(navigator.language)
+    const [language, setLanguage] = useState<dataLang>(langEN)
 
     useEffect(() => {
-        
-        switch (langCode){
-            case "ES":
-                setLanguage(langES)
-                break;
-            
-            case "EN":
-                setLanguage(langEN)
-                break;
 
-            default:
-                setLanguage(langEN)
-                break;
+
+        if(langCode.toLocaleUpperCase().includes("ES")){
+            setLangCode("ES")
+            setLanguage(langES)
+        }else{
+            setLangCode("EN")
+            setLanguage(langEN)
         }
     }, [langCode])
 

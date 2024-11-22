@@ -28,3 +28,17 @@ export interface SectionSimpleHeader {
     subtitle?: string,
     targetLanguage?: string
 }
+
+export interface CaseStudiesHeaderType {
+    imgUrl?: string,
+    title?: string,
+    subtitle?: string,
+    targetLanguage?: string
+}
+
+export interface SectionHeaderType {
+    imgUrl?: string,
+    title?: string,
+    subtitle?: string,
+    targetLanguage?: string
+}
