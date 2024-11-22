@@ -61,6 +61,34 @@ $mobile-screen: 340px;
     background-color: $black;
 }
 
+*::-webkit-scrollbar {
+    width: 14px;
+    /* Ancho de la barra vertical */
+    height: 14px;
+    /* Altura de la barra horizontal */
+}
+
+/* Estilo del fondo del scroll */
+*::-webkit-scrollbar-track {
+    background: $light-gray;
+    border-radius: 4px;
+    /* Color del track (fondo de la barra) */
+}
+
+/* Estilo del "pulgar" (thumb) del scroll */
+*::-webkit-scrollbar-thumb {
+    background: $shadow-gray;
+    /* Color del pulgar */
+    border-radius: 4px;
+    /* Redondea las esquinas */
+    cursor: pointer;
+}
+
+/* Cambia el color al pasar el ratón */
+*::-webkit-scrollbar-thumb:hover {
+    background: $red;
+}
+
 * {
     font-family: 'Garet', sans-serif;
     color: $light-gray;
