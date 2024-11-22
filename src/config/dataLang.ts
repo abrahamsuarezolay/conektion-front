@@ -14,7 +14,17 @@ export const langES:dataLang = {
         instalation: 'Instalación',
         rental: 'Alquiler',
         otherSolutions: 'Otras soluciones'
+    },
+
+    aboutUs: {
+        meetTheTeam: '¡Conoce al equipo!',
+        meetTheTeamDescription: 'Our core values are people and team work. We are a company made by individuals of a wide variety of talents and skills'
+    },
+    
+    comingEvents: {
+        viewArchiveButton: "Entradas antiguas"
     }
+
 }
 
 export const langEN:dataLang = {
@@ -34,5 +44,11 @@ export const langEN:dataLang = {
     aboutUs:{
         meetTheTeam: 'Meet the team',
         meetTheTeamDescription: 'Our core values are people and team work. We are a company made by individuals of a wide variety of talents and skills'
+    },
+    
+    comingEvents: {
+        viewArchiveButton: "View Archive"
     }
+
+
 }

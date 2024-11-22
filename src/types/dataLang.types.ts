@@ -20,6 +20,10 @@ export interface dataLang {
         meetTheTeam?: string,
         meetTheTeamDescription?: string
     }
+
+    comingEvents?: {
+        viewArchiveButton: string
+    }
 }
 
 export interface languageContextType {

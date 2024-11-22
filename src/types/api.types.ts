@@ -36,6 +36,23 @@ export interface CaseStudiesHeaderType {
     targetLanguage?: string
 }
 
+export interface ComingEventsHeaderType {
+    imgUrl?: string,
+    title?: string,
+    subtitle?: string,
+    targetLanguage?: string
+}
+
+export interface BlogEntryType {
+    imgUrl?: string,
+    title?: string,
+    subtitle?: string,
+    targetLanguage?: string,
+    content?: string,
+    date: string,
+    order: number
+}
+
 export interface SectionHeaderType {
     imgUrl?: string,
     title?: string,

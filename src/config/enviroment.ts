@@ -16,4 +16,8 @@ export const api = {
 
     //Case Studies
     apiCaseStudiesHeader: `${urlBase}conektion/wp-json/case-studies/v1/header`,
+
+    //Coming Events
+    apiComingEventsHeader: `${urlBase}conektion/wp-json/coming-events/v1/header`,
+    apiComingEventsBlogEntries: `${urlBase}conektion/wp-json/coming-events/v1/blog-entries`,
 }

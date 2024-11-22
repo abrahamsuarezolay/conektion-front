@@ -1,5 +1,5 @@
 import { api } from "../config/enviroment"
-import { AboutUsHeaderType, AboutUsTeamMembersType, CarouselDataType, CaseStudiesHeaderType, SectionSimpleHeader } from "../types/api.types"
+import { AboutUsHeaderType, AboutUsTeamMembersType, BlogEntryType, CarouselDataType, CaseStudiesHeaderType, ComingEventsHeaderType, SectionSimpleHeader } from "../types/api.types"
 
 
 export const getCarouselHome = async (langCode?: string): Promise<CarouselDataType[]> => {
@@ -75,4 +75,32 @@ export const getCaseStudiesHeader = async (langCode?: string): Promise<CaseStudi
     }
 };
 
+export const getComingEventsHeader = async (langCode?: string): Promise<ComingEventsHeaderType> => {
+    if (!langCode) return {};
+
+    try {
+        const response = await fetch(api.apiComingEventsHeader);
+        const data = await response.json();
+        const jsonFiltered = data.filter((content:ComingEventsHeaderType) => content.targetLanguage === langCode);
+        return jsonFiltered[0];
+    } catch (error) {
+        console.error("Error fetching case studies data:", error);
+        return {};
+    }
+};
+
+
+export const getComingEventsBlogEntries = async (langCode?: string): Promise<BlogEntryType[]> => {
+    if (!langCode) return [];
+
+    try {
+        const response = await fetch(api.apiComingEventsBlogEntries);
+        const data = await response.json();
+        const jsonFiltered = data.filter((content:BlogEntryType) => content.targetLanguage === langCode);
+        return jsonFiltered;
+    } catch (error) {
+        console.error("Error fetching case studies data:", error);
+        return [];
+    }
+};
 
