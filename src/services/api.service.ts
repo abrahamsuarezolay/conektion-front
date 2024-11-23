@@ -1,5 +1,6 @@
 import { api } from "../config/enviroment"
 import { AboutUsHeaderType, AboutUsTeamMembersType, BlogEntryType, CarouselDataType, CaseStudiesHeaderType, ComingEventsHeaderType, SectionSimpleHeader } from "../types/api.types"
+import { blogsDateToDateArray } from "../utils/date-format";
 
 
 export const getCarouselHome = async (langCode?: string): Promise<CarouselDataType[]> => {
@@ -96,7 +97,15 @@ export const getComingEventsBlogEntries = async (langCode?: string): Promise<Blo
     try {
         const response = await fetch(api.apiComingEventsBlogEntries);
         const data = await response.json();
-        const jsonFiltered = data.filter((content:BlogEntryType) => content.targetLanguage === langCode);
+        let jsonFiltered = data.filter((content:BlogEntryType) => content.targetLanguage === langCode);
+
+        jsonFiltered = blogsDateToDateArray(jsonFiltered)
+
+        jsonFiltered.sort((a: { dateTypeDate: { getTime: () => number; }; }, b: { dateTypeDate: { getTime: () => number; }; }) => {
+            // Compare the `dateTypeDate` values in descending order (newest first)
+            return b.dateTypeDate.getTime() - a.dateTypeDate.getTime();
+        });
+
         return jsonFiltered;
     } catch (error) {
         console.error("Error fetching case studies data:", error);

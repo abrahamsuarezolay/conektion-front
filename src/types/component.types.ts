@@ -1,4 +1,4 @@
-import { AboutUsHeaderType, AboutUsTeamMembersType, BlogEntryType, SectionSimpleHeader } from "./api.types";
+import { AboutUsHeaderType, AboutUsTeamMembersType, BlogEntryType, SectionSimpleHeader, SortedBlogs } from "./api.types";
 
 
 export interface AboutUsHeaderComponent {
@@ -20,5 +20,11 @@ export interface SectionHeaderComponent {
 }
 
 export interface BlogListComponent {
-    blogData: BlogEntryType[]
+    blogData: BlogEntryType[],
+    showArchive: () => void
+}
+
+export interface BlogArchiveComponent {
+    sortedBlogs: SortedBlogs[],
+    closeArchive: () =>  void
 }

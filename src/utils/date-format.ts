@@ -1,12 +1,23 @@
+import { BlogEntryType } from "../types/api.types";
 
 
 
 export const blogDateToDate = (blogDate: string) => {
     const [day, month, year] = blogDate.split('/').map(Number);
     const date = new Date(year, month - 1, day);
+    return date
 }
 
-export const blogDateToFormatDate = (blogDate: string, langCode: string): string => {
+export const blogsDateToDateArray = (blogData:BlogEntryType[]) => {
+    
+    blogData.forEach((blogEntry) => {
+        blogEntry.dateTypeDate = blogDateToDate(blogEntry.date);
+    })
+
+    return blogData;
+}
+
+export const blogDateToFormatDate = (blogDate: string, langCode: string, forBlogArchive:boolean): string => {
     // Dividir la fecha en partes (día, mes, año)
     const [day, month, year] = blogDate.split('/').map(Number);
 
@@ -32,5 +43,9 @@ export const blogDateToFormatDate = (blogDate: string, langCode: string): string
     const monthName = months[selectedLanguage][month - 1]; // Ajustar índice del mes
 
     // Retornar la fecha formateada
-    return `${day} ${monthName}, ${year}`;
+    if(forBlogArchive){
+        return `${monthName} ${year}`;
+    }else{
+        return `${day} ${monthName}, ${year}`;
+    }
 };

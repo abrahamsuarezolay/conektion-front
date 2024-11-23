@@ -50,7 +50,14 @@ export interface BlogEntryType {
     targetLanguage?: string,
     content?: string,
     date: string,
+    dateTypeDate: Date,
     order: number
+}
+
+export interface SortedBlogs {
+    date: string,
+    dateTypeDate: Date,
+    blogs: BlogEntryType[]
 }
 
 export interface SectionHeaderType {
