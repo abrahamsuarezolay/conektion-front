@@ -12,7 +12,7 @@ export const sortBlogsByDate = (blogData:BlogEntryType[], langCode:string):Sorte
             const date = new Date(blog.dateTypeDate.getFullYear(), blog.dateTypeDate.getMonth())
             sortedBlogs.push({ date: blogDateToFormatDate(blog.date, langCode, true), dateTypeDate: date, blogs: [blog] }) 
         }else{
-            const sortedBlog = sortedBlogs.find(sortedBlog => sortedBlog.date == blog.date)
+            const sortedBlog = sortedBlogs.find(sortedBlog => sortedBlog.dateTypeDate.getMonth() == blog.dateTypeDate.getMonth())
             sortedBlog?.blogs.push(blog)
         }
     })

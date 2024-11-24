@@ -38,7 +38,7 @@ const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
     return (
         <div className="blog-list-container">
             <div className="blog-list">
-                {blogData.map((blogEntry, index) =>
+                {blogData.slice(0, 11).map((blogEntry, index) =>
                     <>
                         {index == 0 ? (
                             <div className={responsive ? "entry-responsive" : "first-entry"}>
@@ -46,10 +46,9 @@ const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
                                     <img src={blogEntry.imgUrl} alt={blogEntry.title}></img>
                                 </div>
                                 <div className={responsive ? "entry-text-responsive" : "first-entry-text"}>
-                                    <div>
+                                    
                                         <h2>{blogEntry?.title}</h2>
-                                        <h3>{blogEntry?.subtitle}</h3>
-                                    </div>
+                                    
                                     <div>
                                         <span>{blogDateToFormatDate(blogEntry.date, langCode, false)}</span>
                                     </div>
@@ -57,16 +56,15 @@ const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
                             </div>
                         ) : (
                             <>
-                                {index <= 5 ? (
+                                {index <= 4 ? (
                                     <div className={responsive ? "entry-responsive" : "secondary-entry"}>
                                         <div className="blog-img-container">
                                             <img src={blogEntry.imgUrl} alt={blogEntry.title}></img>
                                         </div>
                                         <div className={responsive ? "entry-text-responsive" : "secondary-entry-text"}>
-                                            <div>
+                                            
                                                 <h2>{blogEntry.title}</h2>
-                                                <h3>{blogEntry.subtitle}</h3>
-                                            </div>
+                                        
                                             <div>
                                                 <span>{blogDateToFormatDate(blogEntry.date, langCode, false)}</span>
                                             </div>
@@ -78,10 +76,9 @@ const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
                                             <img src={blogEntry.imgUrl} alt={blogEntry.title}></img>
                                         </div>
                                         <div className={responsive ? "entry-text-responsive" : "third-entry-text"}>
-                                            <div>
+                                            
                                                 <h2>{blogEntry.title}</h2>
-                                                <h3>{blogEntry.subtitle}</h3>
-                                            </div>
+                                            
                                             <div>
                                                 <span>{blogDateToFormatDate(blogEntry.date, langCode, false)}</span>
                                             </div>
