@@ -9,6 +9,7 @@ import ComingEventsLayout from "../features/comingEvents/layout/ComingEventsLayo
 import ContactLayout from "../features/contact/layout/ContactLayout";
 import OtherSolutionsLayout from "../features/otherSolutions/layout/OtherSolutionsLayout";
 import RentalLayout from "../features/rental/layout/RentalLayout";
+import BlogArchive from "../features/comingEvents/components/BlogArchive/BlogArchive";
 
 export const BaseRoutes = () => {
 
@@ -24,6 +25,7 @@ export const BaseRoutes = () => {
         <Route path="/about" element={<AboutUsLayout />} />
         <Route path="/casestudies" element={<CaseStudiesLayout />} />
         <Route path="/comingevents" element={<ComingEventsLayout />} />
+        <Route path="/comingevents/archive" element={<ComingEventsLayout />} />
         <Route path="/contact" element={<ContactLayout />} />
         <Route path="/othersolutions" element={<OtherSolutionsLayout />} />
         <Route path="/rental" element={<RentalLayout />} />

@@ -13,3 +13,19 @@
     overflow-y: scroll;
     z-index: 50;
 }
+
+.blog-tools{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.back-button{
+    fill: $red;
+    cursor: pointer;
+    padding-top: 20px;
+}

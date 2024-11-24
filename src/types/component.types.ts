@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { AboutUsHeaderType, AboutUsTeamMembersType, BlogEntryType, SectionSimpleHeader, SortedBlogs } from "./api.types";
 
 
@@ -27,4 +28,9 @@ export interface BlogListComponent {
 export interface BlogArchiveComponent {
     sortedBlogs: SortedBlogs[],
     closeArchive: () =>  void
+}
+
+export interface SearchBarComponent {
+    searchValue: string,
+    setSearchValue: Dispatch<SetStateAction<string>>
 }

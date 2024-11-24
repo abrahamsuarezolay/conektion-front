@@ -11,7 +11,6 @@ const BlogArchive: React.FC<BlogArchiveComponent> = ({ sortedBlogs, closeArchive
 
   return (
     <div className="blog-archive-container">
-      <button onClick={closeArchive}>Close</button>
       <div className="blog-archive-list">
         {sortedBlogs.map((sortedBlog) => (
           <div className="sorted-blogs" key={sortedBlog.date}>
@@ -22,9 +21,7 @@ const BlogArchive: React.FC<BlogArchiveComponent> = ({ sortedBlogs, closeArchive
                   <img src={blogEntry.imgUrl} alt={blogEntry.title} />
                 </div>
                 <div className="archive-blog-text">
-                  
                     <h2>{blogEntry.title}</h2>
-                  
                   <span>{blogDateToFormatDate(blogEntry.date, langCode, false)}</span>
                 </div>
               </div>

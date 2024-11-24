@@ -1,0 +1,40 @@
+@use "./../../../../App.scss" as *;
+
+.search-bar-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+
+    input{
+        width: 420px;
+        height: 40px;
+        border-radius: 50px;
+        font-size: 20px;
+        color: $black;
+        border: none;
+        padding: 5px 25px
+    }
+
+    input:focus{
+        border: none;
+        outline: none;
+    }
+}
+
+.search-icon{
+    position: absolute;
+    right: 10px;
+    fill: $black;
+}
+
+@media (max-width: $small-screen){
+    .search-bar-container{
+        width: 280px;
+    }
+
+    .search-icon{
+        right: 4px;
+    }
+}

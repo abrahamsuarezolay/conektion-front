@@ -8,26 +8,39 @@ import { BlogEntryType, SectionHeaderType, SortedBlogs } from '../../../types/ap
 import BlogList from '../components/BlogList/BlogList'
 import { sortBlogsByDate } from '../../../utils/array-util'
 import BlogArchive from '../components/BlogArchive/BlogArchive'
+import SearchBar from '../components/SearchBar/SearchBar'
+import { BsArrowLeftCircle } from 'react-icons/bs'
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function ComingEventsLayout() {
   const { langCode } = useContext(LanguageContext)
-  if(!langCode){return}
+  if (!langCode) { return }
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isArchive = location.pathname === '/comingevents/archive';
 
   const [loading, setLoading] = useState<boolean>(true)
   const [showArchive, setShowArchive] = useState<boolean>(false)
   const [headerData, setHeaderData] = useState<SectionHeaderType>({})
   const [blogData, setBlogData] = useState<BlogEntryType[]>([])
+  const [filteredBlogs, setFilteredBlogs] = useState<BlogEntryType[]>([])
   const [sortedBlogs, setSortedBlogs] = useState<SortedBlogs[]>([])
+  const [filteredSorted, setFilteredSorted] = useState<SortedBlogs[]>([])
+
+  const [searchValue, setSearchValue] = useState('')
 
   const handleShowArchive = () => {
-    setShowArchive(true)
+    navigate("/comingevents/archive")
+    setSearchValue('')
   }
 
   const handleCloseArchive = () => {
-    setShowArchive(false)
+    navigate("/archive")
+    setSearchValue('')
   }
- 
- 
+
   useEffect(() => {
     setLoading(true)
 
@@ -47,10 +60,20 @@ function ComingEventsLayout() {
   }, [langCode])
 
   useEffect(() => {
-    if(blogData){
+    if (blogData) {
       setSortedBlogs(sortBlogsByDate(blogData, langCode))
     }
   }, [blogData])
+
+  useEffect(() => {
+    if(searchValue != ''){
+      setFilteredBlogs(blogData.filter((blog) => blog.title?.toLowerCase().includes(searchValue.toLowerCase())))
+      setFilteredSorted(sortBlogsByDate(blogData.filter((blog) => blog.title?.toLowerCase().includes(searchValue.toLowerCase())), langCode))
+    }else{
+      setFilteredBlogs(blogData)
+      setFilteredSorted(sortedBlogs)
+    }
+  }, [searchValue])
 
 
   return (
@@ -58,10 +81,14 @@ function ComingEventsLayout() {
       {!loading ? (
         <>
           <SectionHeader headerData={headerData} />
-          {showArchive ? (
-            <BlogArchive sortedBlogs={sortedBlogs} closeArchive={handleCloseArchive} />
+          <div className='blog-tools'>
+            <SearchBar setSearchValue={setSearchValue} searchValue={searchValue}/>
+            {showArchive && <BsArrowLeftCircle className='back-button' size={50} onClick={handleCloseArchive}/>}
+          </div>
+          {isArchive ? (
+            <BlogArchive sortedBlogs={filteredSorted} closeArchive={handleCloseArchive} />
           ) : (
-            <BlogList blogData={blogData} showArchive={handleShowArchive}/>
+            <BlogList blogData={filteredBlogs} showArchive={handleShowArchive} />
           )}
         </>
       ) : (
