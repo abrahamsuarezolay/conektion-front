@@ -22,12 +22,18 @@ export interface SectionHeaderComponent {
 
 export interface BlogListComponent {
     blogData: BlogEntryType[],
-    showArchive: () => void
+    showArchive: () => void,
+    showBlog: (blogTitle: string | undefined) => void,
 }
 
 export interface BlogArchiveComponent {
     sortedBlogs: SortedBlogs[],
-    closeArchive: () =>  void
+    closeArchive: () =>  void,
+    showBlog: (blogTitle: string) => void,
+}
+
+export interface BlogItemComponent {
+    blogData: BlogEntryType
 }
 
 export interface SearchBarComponent {

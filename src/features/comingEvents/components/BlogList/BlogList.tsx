@@ -5,7 +5,7 @@ import { WiDayCloudy } from "react-icons/wi"
 import { BlogListComponent } from "../../../../types/component.types"
 import { blogDateToFormatDate } from "../../../../utils/date-format"
 
-const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
+const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive, showBlog }) => {
 
     const { language, langCode } = useContext(LanguageContext)
     if (!blogData || !langCode) { return }
@@ -41,7 +41,7 @@ const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
                 {blogData.slice(0, 11).map((blogEntry, index) =>
                     <>
                         {index == 0 ? (
-                            <div className={responsive ? "entry-responsive" : "first-entry"}>
+                            <div className={responsive ? "entry-responsive" : "first-entry"} onClick={() => showBlog(blogEntry.title)}>
                                 <div className="blog-img-container">
                                     <img src={blogEntry.imgUrl} alt={blogEntry.title}></img>
                                 </div>
@@ -57,7 +57,7 @@ const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
                         ) : (
                             <>
                                 {index <= 4 ? (
-                                    <div className={responsive ? "entry-responsive" : "secondary-entry"}>
+                                    <div className={responsive ? "entry-responsive" : "secondary-entry"} onClick={() => showBlog(blogEntry.title)}>
                                         <div className="blog-img-container">
                                             <img src={blogEntry.imgUrl} alt={blogEntry.title}></img>
                                         </div>
@@ -71,7 +71,7 @@ const BlogList: React.FC<BlogListComponent> = ({ blogData, showArchive }) => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className={responsive ? "entry-responsive" : "third-entry"}>
+                                    <div className={responsive ? "entry-responsive" : "third-entry"} onClick={() => showBlog(blogEntry.title)}>
                                         <div className="blog-img-container">
                                             <img src={blogEntry.imgUrl} alt={blogEntry.title}></img>
                                         </div>

@@ -26,6 +26,7 @@ export const BaseRoutes = () => {
         <Route path="/casestudies" element={<CaseStudiesLayout />} />
         <Route path="/comingevents" element={<ComingEventsLayout />} />
         <Route path="/comingevents/archive" element={<ComingEventsLayout />} />
+        <Route path="/comingevents/blog/:blogTitle" element={<ComingEventsLayout />} />
         <Route path="/contact" element={<ContactLayout />} />
         <Route path="/othersolutions" element={<OtherSolutionsLayout />} />
         <Route path="/rental" element={<RentalLayout />} />

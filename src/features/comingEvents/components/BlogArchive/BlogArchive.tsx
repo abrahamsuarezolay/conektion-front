@@ -4,7 +4,7 @@ import "./BlogArchive.scss"
 import { blogDateToFormatDate } from "../../../../utils/date-format"
 import LanguageContext from "../../../../context/LangContext"
 
-const BlogArchive: React.FC<BlogArchiveComponent> = ({ sortedBlogs, closeArchive }) => {
+const BlogArchive: React.FC<BlogArchiveComponent> = ({ sortedBlogs, closeArchive, showBlog }) => {
 
   const { langCode } = useContext(LanguageContext)
   if (!langCode) { return }
@@ -16,7 +16,7 @@ const BlogArchive: React.FC<BlogArchiveComponent> = ({ sortedBlogs, closeArchive
           <div className="sorted-blogs" key={sortedBlog.date}>
             <h2>{sortedBlog.date}</h2>
             {sortedBlog.blogs.map((blogEntry) => (
-              <div className="blog-entry" key={blogEntry.imgUrl}>
+              <div className="blog-entry" key={blogEntry.imgUrl} onClick={() => {if(blogEntry.title) showBlog(blogEntry.title)}}>
                 <div className="img-archive-container">
                   <img src={blogEntry.imgUrl} alt={blogEntry.title} />
                 </div>
