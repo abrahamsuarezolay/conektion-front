@@ -20,4 +20,7 @@ export const api = {
     //Coming Events
     apiComingEventsHeader: `${urlBase}conektion/wp-json/coming-events/v1/header`,
     apiComingEventsBlogEntries: `${urlBase}conektion/wp-json/coming-events/v1/blog-entries`,
+
+    //Elementor pages
+    apiGetAllPages: `${urlBase}/conektion/wp-json/wp/v2/pages/`
 }

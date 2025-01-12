@@ -32,3 +32,8 @@ export interface languageContextType {
     langCode?: string,
     setLangCode?: Dispatch<SetStateAction<string>>,
 }
+
+
+export interface elementorContextType {
+    elementorPages?: [{}]
+}

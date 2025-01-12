@@ -59,6 +59,7 @@ $mobile-screen: 340px;
     width: 100vw;
     min-width: 100vw;
     background-color: $black;
+    overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
